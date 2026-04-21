@@ -1,0 +1,24 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "Resources for Neuro Multiplayer AI players.",
+    "name": "AI Multiplayer RP",
+    "uuid": "d4a7c1e2-9f63-4b2d-8a91-5c3e7f2b6a10",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 80]
+  },
+  "modules": [
+    {
+      "description": "Neuro Multiplayer Resources",
+      "type": "resources",
+      "uuid": "7b2e5d91-3c4f-4a88-b6d2-9f1a0e7c5b22",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "a9f3c2d1-5b6e-4d9a-8f71-2c3e9b7a1d44",
+      "version": [1, 0, 0]
+    }
+  ]
+}

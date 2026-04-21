@@ -1,0 +1,10 @@
+action.interact.ask=Ask
+action.interact.give=Give
+action.interact.chuanshang=Wear
+action.interact.tuoxia=Take Off
+action.interact.suoding=Lock
+action.interact.jiechu=Unlock
+entity.zbw:bot.name=Player
+item.spawn_egg.entity.rg:bot.name=Spawn Player
+Item.rg:friend_list_opener=Friend List
+item.rg:friend_request=Friend Request

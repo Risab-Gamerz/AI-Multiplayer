@@ -1,0 +1,21 @@
+{
+    "format_version": "1.19.50",
+    "minecraft:weighted_random_feature": {
+        "description": {
+            "identifier": "rg:di_aggregate"
+        },
+        "features": [
+            [ "rg:di1", 3 ],
+            [ "rg:di2", 4 ],
+            [ "rg:di3", 3 ],
+            [ "rg:di4", 4 ],
+            [ "rg:di5", 3 ],
+            [ "rg:di6", 4 ],
+            [ "rg:di7", 3 ],
+            [ "rg:di8", 4 ],
+            [ "rg:di9", 3 ],
+            [ "rg:di10", 4 ],
+            [ "rg:di11", 3 ]
+        ]
+    }
+}

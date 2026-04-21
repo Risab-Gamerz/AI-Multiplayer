@@ -1,0 +1,15 @@
+{
+    "format_version": "1.19.50",
+    "minecraft:weighted_random_feature": {
+        "description": {
+            "identifier": "rg:box_aggregate"
+        },
+        "features": [
+            [ "rg:box1", 3 ],
+            [ "rg:box2", 4 ],
+            [ "rg:box3", 3 ],
+            [ "rg:box4", 4 ],
+            [ "rg:box5", 3 ]
+        ]
+    }
+}

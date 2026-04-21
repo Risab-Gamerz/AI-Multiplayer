@@ -1,0 +1,10 @@
+action.interact.ask=Perguntar
+action.interact.give=Dar
+action.interact.chuanshang=Vestir
+action.interact.tuoxia=Tirar
+action.interact.suoding=Bloquear
+action.interact.jiechu=Desbloquear
+entity.zbw:bot.name=Jogador
+item.spawn_egg.entity.rg:bot.name=Gerar Jogador
+item.rg:friend_list_opener=Lista de amigos
+item.rg:friend_request=Solicitação de amizade

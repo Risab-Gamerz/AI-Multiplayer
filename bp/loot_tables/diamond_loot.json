@@ -1,0 +1,178 @@
+{
+	"pools": [
+		{
+		"conditions": [
+        {
+          "condition": "killed_by_entity",
+          "entity_type": "minecraft:player"
+        }
+      ],
+			"rolls": {
+				"min": 2,
+				"max": 4
+			},
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:obsidian",
+					"weight": 5,
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 4,
+								"max": 10
+							}
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:iron_ingot",
+					"weight": 8,
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 8,
+								"max": 24
+							}
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:diamond",
+					"weight": 4,
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 1,
+								"max": 3
+							}
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:ender_chest",
+					"weight": 2
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "random_chance",
+					"chance": 0.25
+				},
+				{
+          "condition": "killed_by_entity",
+          "entity_type": "minecraft:player"
+        }
+			],
+			"entries": [
+				{"type": "item","name": "minecraft:enchanting_table","weight": 1},
+				{"type": "item","name": "minecraft:anvil","weight": 1}
+			]
+		},
+		{
+		"conditions": [
+        {
+          "condition": "killed_by_entity",
+          "entity_type": "minecraft:player"
+        }
+      ],
+			"rolls": {
+				"min": 1,
+				"max": 2
+			},
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:diamond_pickaxe",
+					"weight": 8,
+					"functions": [{"function": "set_damage","damage": {"min": 0.1,"max": 0.5}},{"function": "enchant_with_levels","levels": {"min": 18,"max": 30},"treasure": true}]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:diamond_sword",
+					"weight": 8,
+					"functions": [{"function": "set_damage","damage": {"min": 0.1,"max": 0.5}},{"function": "enchant_with_levels","levels": {"min": 18,"max": 30},"treasure": true}]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:diamond_axe",
+					"weight": 4,
+					"functions": [{"function": "set_damage","damage": {"min": 0.1,"max": 0.5}},{"function": "enchant_with_levels","levels": {"min": 18,"max": 30},"treasure": true}]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:iron_pickaxe",
+					"weight": 2,
+					"functions": [{"function": "set_damage","damage": {"min": 0.2,"max": 0.7}},{"function": "enchant_with_levels","levels": {"min": 18,"max": 30},"treasure": true}]
+				}
+			]
+		},
+		{
+			"rolls": {
+				"min": 1,
+				"max": 3
+			},
+			"conditions": [
+				{
+					"condition": "random_chance",
+					"chance": 0.8
+				},
+				{
+          "condition": "killed_by_entity",
+          "entity_type": "minecraft:player"
+        }
+			],
+			"entries": [
+				{"type": "item","name": "minecraft:diamond","weight": 5,"functions": [{"function": "set_count","count": {"min": 1,"max": 4}}]},
+				{"type": "item","name": "minecraft:emerald","weight": 4,"functions": [{"function": "set_count","count": {"min": 2,"max": 8}}]},
+				{"type": "item","name": "minecraft:netherite_scrap","weight": 1,"functions": [{"function": "set_count","count": {"min": 1,"max": 2}}]},
+				{"type": "item","name": "minecraft:lapis_lazuli","weight": 6,"functions": [{"function": "set_count","count": {"min": 16,"max": 32}}]}
+			]
+		},
+		{
+		"conditions": [
+        {
+          "condition": "killed_by_entity",
+          "entity_type": "minecraft:player"
+        }
+      ],
+			"rolls": {
+				"min": 2,
+				"max": 3
+			},
+			"entries": [
+				{"type": "item","name": "minecraft:potion","weight": 2, "data": 21},
+				{"type": "item","name": "minecraft:potion","weight": 2, "data": 13}
+			]
+		},
+		{
+		"conditions": [
+        {
+          "condition": "killed_by_entity",
+          "entity_type": "minecraft:player"
+        }
+      ],
+			"rolls": {
+				"min": 1,
+				"max": 3
+			},
+			"entries": [
+				{"type": "item","name": "minecraft:ender_pearl","weight": 20,"functions": [{"function": "set_count","count": {"min": 2,"max": 8}}]},
+				{"type": "item","name": "minecraft:arrow","weight": 15,"functions": [{"function": "set_count","count": {"min": 16,"max": 32}}]},
+				{"type": "item","name": "minecraft:experience_bottle","weight": 8,"functions": [{"function": "set_count","count": {"min": 5,"max": 11}}]},
+				{"type": "item","name": "minecraft:golden_apple","weight": 3},
+				{"type": "item","name": "minecraft:totem_of_undying","weight": 2},
+				{"type": "item","name": "minecraft:enchanted_golden_apple","weight": 1}
+			]
+		}
+	]
+}

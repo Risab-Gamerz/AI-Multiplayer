@@ -1,0 +1,128 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "rg:bot",
+      "materials": {
+        "default": "skeleton"
+      },
+      "textures": {
+        "skin01": "textures/entity/aibots/skin01",
+        "skin02": "textures/entity/aibots/skin02",
+        "skin03": "textures/entity/aibots/skin03",
+        "skin04": "textures/entity/aibots/skin04",
+        "skin05": "textures/entity/aibots/skin05",
+        "skin06": "textures/entity/aibots/skin06",
+        "skin07": "textures/entity/aibots/skin07",
+        "skin08": "textures/entity/aibots/skin08",
+        "skin09": "textures/entity/aibots/skin09",
+        "skin10": "textures/entity/aibots/skin10",
+        "skin11": "textures/entity/aibots/skin11",
+        "skin12": "textures/entity/aibots/skin12",
+        "skin13": "textures/entity/aibots/skin13",
+        "skin14": "textures/entity/aibots/skin14",
+        "skin15": "textures/entity/aibots/skin15",
+        "skin16": "textures/entity/aibots/skin16",
+        "skin17": "textures/entity/aibots/skin17",
+        "skin18": "textures/entity/aibots/skin18",
+        "skin19": "textures/entity/aibots/skin19",
+        "skin20": "textures/entity/aibots/skin20",
+        "skin21": "textures/entity/aibots/skin21",
+        "skin22": "textures/entity/aibots/skin22",
+        "skin23": "textures/entity/aibots/skin23",
+        "skin24": "textures/entity/aibots/skin24",
+        "skin25": "textures/entity/aibots/skin25",
+        "skin26": "textures/entity/aibots/skin26",
+        "skin27": "textures/entity/aibots/skin27",
+        "skin28": "textures/entity/aibots/skin28",
+        "skin29": "textures/entity/aibots/skin29",
+        "skin30": "textures/entity/aibots/skin30",
+        "skin31": "textures/entity/aibots/skin31",
+        "skin32": "textures/entity/aibots/skin32",
+        "skin33": "textures/entity/aibots/skin33",
+        "skin34": "textures/entity/aibots/skin34",
+        "skin35": "textures/entity/aibots/skin35",
+        "skin36": "textures/entity/aibots/skin36",
+        "skin37": "textures/entity/aibots/skin37",
+        "skin38": "textures/entity/aibots/skin38"
+      },
+      "geometry": {
+        "default": "geometry.humanoidbot"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+        ]
+      },
+      "animations": {
+        "look_at_target_default": "animation.humanoid.look_at_target.default",
+        "look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+        "look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+        "move": "animation.humanoid.move",
+        "riding.arms": "animation.humanoid.riding.arms",
+        "riding.legs": "animation.humanoid.riding.legs",
+        "holding": "animation.humanoid.holding",
+        "brandish_spear": "animation.humanoid.brandish_spear",
+        "charging": "animation.humanoid.charging",
+        "attack.rotations": "animation.humanoid.attack.rotations",
+        "sneaking": "animation.humanoid.sneakinga",
+        "bob": "animation.humanoid.bob",
+        "swimming": "animation.humanoid.swimming",
+        "use_item_progress": "animation.humanoid.use_item_progress",
+        "bow_and_arrow": "animation.humanoid.bow_and_arrow",
+        "eat_item_custom": "animation.rg_bot.eat_item_custom",
+        "set_block": "animation.humanoid.set_block",
+        "blocking": "animation.player.shield_block_off_hand"
+      },
+      "animation_controllers": [
+        {
+          "look_at_target": "controller.animation.humanoid.look_at_target"
+        },
+        {
+          "bow_and_arrow": "controller.animation.humanoid.bow_and_arrow"
+        },
+        {
+          "move": "controller.animation.humanoid.move"
+        },
+        {
+          "riding": "controller.animation.humanoid.riding"
+        },
+        {
+          "holding": "controller.animation.humanoid.holding"
+        },
+        {
+          "brandish_spear": "controller.animation.humanoid.brandish_spear"
+        },
+        {
+          "charging": "controller.animation.humanoid.charging"
+        },
+        {
+          "attack": "controller.animation.humanoid.attack"
+        },
+        {
+          "sneaking": "controller.animation.humanoid.sneaking"
+        },
+        {
+          "bob": "controller.animation.humanoid.bob"
+        },
+        {
+          "swimming": "controller.animation.humanoid.swimming"
+        },
+        {
+          "use_item_progress": "controller.animation.humanoid.use_item_progress"
+        },
+        {
+          "blocking": "controller.animation.bot.shield_block"
+        }
+      ],
+      "spawn_egg": {
+        "texture": "rg:bot",
+        "texture_index": 0
+      },
+      "render_controllers": [
+        "controller.render.aibot"
+      ],
+      "enable_attachables": true
+    }
+  }
+}

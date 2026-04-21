@@ -1,0 +1,60 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.aibot": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.skin01",
+            "Texture.skin02",
+            "Texture.skin03",
+            "Texture.skin04",
+            "Texture.skin05",
+            "Texture.skin06",
+            "Texture.skin07",
+            "Texture.skin08",
+            "Texture.skin09",
+            "Texture.skin10",
+            "Texture.skin11",
+            "Texture.skin12",
+            "Texture.skin13",
+            "Texture.skin14",
+            "Texture.skin15",
+            "Texture.skin16",
+            "Texture.skin17",
+            "Texture.skin18",
+            "Texture.skin19",
+            "Texture.skin20",
+            "Texture.skin21",
+            "Texture.skin22",
+            "Texture.skin23",
+            "Texture.skin24",
+            "Texture.skin25",
+            "Texture.skin26",
+            "Texture.skin27",
+            "Texture.skin28",
+            "Texture.skin29",
+            "Texture.skin30",
+            "Texture.skin31",
+            "Texture.skin32",
+            "Texture.skin33",
+            "Texture.skin34",
+            "Texture.skin35",
+            "Texture.skin36",
+            "Texture.skin37",
+            "Texture.skin38"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.variant]"
+      ]
+    }
+  }
+}

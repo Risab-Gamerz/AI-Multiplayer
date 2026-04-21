@@ -1,0 +1,10 @@
+action.interact.ask=Спросить
+action.interact.give=Дать
+action.interact.chuanshang=Надеть
+action.interact.tuoxia=Снять
+action.interact.suoding=Заблокировать
+action.interact.jiechu=Разблокировать
+entity.zbw:bot.name=Игрок
+item.spawn_egg.entity.rg:bot.name=Призвать Игрока
+item.rg:friend_list_opener=Список друзей
+item.rg:friend_request=Запрос в друзья

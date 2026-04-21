@@ -1,0 +1,1 @@
+playsound item.shield.block @a[r=8]

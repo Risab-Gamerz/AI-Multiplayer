@@ -1,0 +1,12 @@
+{
+    "format_version": "1.19.50",
+    "minecraft:weighted_random_feature": {
+        "description": {
+            "identifier": "rg:house_aggregate"
+        },
+        "features": [
+            [ "rg:house1", 3 ],
+            [ "rg:house2", 4 ]
+        ]
+    }
+}

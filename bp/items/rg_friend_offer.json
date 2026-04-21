@@ -1,0 +1,15 @@
+{
+    "format_version": "1.20.50",
+    "minecraft:item": {
+        "description": {
+            "identifier": "rg:friend_request",
+            "category": "equipment"
+        },
+        "components": {
+            "minecraft:icon": {
+                "texture": "friend_request"
+            },
+            "minecraft:max_stack_size": 64
+        }
+    }
+}

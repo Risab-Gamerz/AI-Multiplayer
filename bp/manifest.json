@@ -1,0 +1,40 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "Adds AI players that act like real multiplayer users.",
+    "name": "AI Multiplayer",
+    "uuid": "a9f3c2d1-5b6e-4d9a-8f71-2c3e9b7a1d44",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 80]
+  },
+  "modules": [
+    {
+      "description": "Neuro Multiplayer Core",
+      "type": "data",
+      "uuid": "c7b12f9e-8a4d-4f52-9a3e-6f1b2c8d9e55",
+      "version": [1, 0, 0]
+    },
+    {
+      "description": "Neuro AI Naming Script",
+      "type": "script",
+      "language": "javascript",
+      "uuid": "e3d45a77-91f6-4c1f-b3a2-5d9e7f0a6c88",
+      "version": [1, 0, 0],
+      "entry": "scripts/rgstart.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.7.0-beta"
+    },
+     {
+    "module_name": "@minecraft/server-ui",
+    "version": "2.0.0"
+     },
+    {
+      "uuid": "d4a7c1e2-9f63-4b2d-8a91-5c3e7f2b6a10",
+      "version": [1, 0, 0]
+    }
+  ]
+}

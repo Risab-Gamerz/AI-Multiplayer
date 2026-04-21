@@ -1,0 +1,1 @@
+export const action = Math.random() < 0.5 ? "joined the game" : "left the game";

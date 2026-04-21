@@ -1,0 +1,57 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "rg:di_rules",
+			"places_feature": "rg:di_aggregate"
+		},
+		"conditions": {
+			"placement_pass": "first_pass",
+			"minecraft:biome_filter": {
+				"any_of": [
+					{
+						"test": "has_biome_tag",
+						"operator": "==",
+						"value": "plains"
+					},
+					{
+						"test": "has_biome_tag",
+						"operator": "==",
+						"value": "forest"
+					},
+					{
+						"test": "has_biome_tag",
+						"operator": "==",
+						"value": "taiga"
+					},
+					{
+						"test": "has_biome_tag",
+						"operator": "==",
+						"value": "savanna"
+					},
+					{
+						"test": "has_biome_tag",
+						"operator": "==",
+						"value": "ice"
+					}
+				]
+			}
+		},
+		"distribution": {
+			"iterations": 1,
+			"x": {
+				"extent": [ 0, 16 ],
+				"distribution": "uniform"
+			},
+			"y": "q.heightmap(v.worldx, v.worldz)",
+			"z": {
+				"extent": [ 0, 16 ],
+				"distribution": "uniform"
+			},
+			"scatter_chance": {
+				"numerator": 1,
+				"denominator": 90
+			}
+		}
+	}
+}

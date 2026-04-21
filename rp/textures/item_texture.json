@@ -1,0 +1,15 @@
+{
+  "resource_pack_name": "vanilla",
+  "texture_name": "atlas.items",
+  "texture_data": {
+     "rg:bot": {
+      "textures": "textures/items/egg/rg_bot"
+    },
+    "friend_list_opener": {
+      "textures": "textures/items/friends"
+    },
+    "friend_request": {
+      "textures": "textures/items/friend_request"
+    }
+  }
+}

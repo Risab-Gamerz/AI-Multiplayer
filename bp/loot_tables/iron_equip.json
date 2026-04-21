@@ -1,0 +1,65 @@
+{
+    "format_version": "1.19.50",
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {"type": "item","name": "minecraft:golden_helmet","weight": 5,"functions": [{"function": "enchant_randomly"}]},
+                {"type": "item","name": "minecraft:iron_helmet","weight": 20,"functions": [{"function": "enchant_with_levels","levels": {"min": 1,"max": 18},"treasure": true}]},
+                {"type": "item","name": "minecraft:iron_helmet","weight": 40},
+                {"type": "item","name": "minecraft:copper_helmet","weight": 25},
+                {"type": "item","name": "minecraft:leather_helmet","weight": 10}
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {"type": "item","name": "minecraft:golden_chestplate","weight": 5,"functions": [{"function": "enchant_randomly"}]},
+                {"type": "item","name": "minecraft:iron_chestplate","weight": 20,"functions": [{"function": "enchant_with_levels","levels": {"min": 1,"max": 18},"treasure": true}]},
+                {"type": "item","name": "minecraft:iron_chestplate","weight": 45},
+                {"type": "item","name": "minecraft:copper_chestplate","weight": 20},
+                {"type": "item","name": "minecraft:leather_chestplate","weight": 10}
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {"type": "item","name": "minecraft:golden_leggings","weight": 5,"functions": [{"function": "enchant_randomly"}]},
+                {"type": "item","name": "minecraft:iron_leggings","weight": 20,"functions": [{"function": "enchant_with_levels","levels": {"min": 1,"max": 18},"treasure": true}]},
+                {"type": "item","name": "minecraft:iron_leggings","weight": 45},
+                {"type": "item","name": "minecraft:copper_leggings","weight": 20},
+                {"type": "item","name": "minecraft:leather_leggings","weight": 10}
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {"type": "item","name": "minecraft:golden_boots","weight": 5,"functions": [{"function": "enchant_randomly"}]},
+                {"type": "item","name": "minecraft:iron_boots","weight": 20,"functions": [{"function": "enchant_with_levels","levels": {"min": 1,"max": 18},"treasure": true}]},
+                {"type": "item","name": "minecraft:iron_boots","weight": 40},
+                {"type": "item","name": "minecraft:copper_boots","weight": 25},
+                {"type": "item","name": "minecraft:leather_boots","weight": 10}
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                { "type": "item", "name": "minecraft:copper_sword", "weight": 3, "functions": [{"function": "set_damage", "damage": {"min": 0.3,"max": 0.85}}]},
+                { "type": "item", "name": "minecraft:copper_axe", "weight": 3, "functions": [{"function": "set_damage", "damage": {"min": 0.3,"max": 0.85}}]},
+                { "type": "item", "name": "minecraft:copper_pickaxe", "weight": 3, "functions": [{"function": "set_damage", "damage": {"min": 0.3,"max": 0.85}}]},
+                { "type": "item", "name": "minecraft:copper_shovel", "weight": 3, "functions": [{"function": "set_damage", "damage": {"min": 0.3,"max": 0.85}}]},
+                { "type": "item", "name": "minecraft:copper_hoe", "weight": 3, "functions": [{"function": "set_damage", "damage": {"min": 0.3,"max": 0.85}}]},
+                { "type": "item", "name": "minecraft:iron_sword", "weight": 16, "functions": [{"function": "set_damage", "damage": {"min": 0.2,"max": 0.7}}]},
+                { "type": "item", "name": "minecraft:iron_axe", "weight": 16, "functions": [{"function": "set_damage", "damage": {"min": 0.2,"max": 0.7}}]},
+                { "type": "item", "name": "minecraft:iron_pickaxe", "weight": 16, "functions": [{"function": "set_damage", "damage": {"min": 0.2,"max": 0.7}}]},
+                { "type": "item", "name": "minecraft:iron_shovel", "weight": 16, "functions": [{"function": "set_damage", "damage": {"min": 0.2,"max": 0.7}}]},
+                { "type": "item", "name": "minecraft:iron_hoe", "weight": 16, "functions": [{"function": "set_damage", "damage": {"min": 0.2,"max": 0.7}}]},
+                { "type": "item", "name": "minecraft:diamond_sword", "weight": 1, "functions": [{"function": "set_damage", "damage": {"min": 0.1,"max": 0.5}}]},
+                { "type": "item", "name": "minecraft:diamond_axe", "weight": 1, "functions": [{"function": "set_damage", "damage": {"min": 0.1,"max": 0.5}}]},
+                { "type": "item", "name": "minecraft:diamond_pickaxe", "weight": 1, "functions": [{"function": "set_damage", "damage": {"min": 0.1,"max": 0.5}}]},
+                { "type": "item", "name": "minecraft:diamond_shovel", "weight": 1, "functions": [{"function": "set_damage", "damage": {"min": 0.1,"max": 0.5}}]},
+                { "type": "item", "name": "minecraft:diamond_hoe", "weight": 1, "functions": [{"function": "set_damage", "damage": {"min": 0.1,"max": 0.5}}]}
+            ]
+        }
+    ]
+}

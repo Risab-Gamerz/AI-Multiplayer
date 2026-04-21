@@ -1,0 +1,848 @@
+{
+  "format_version": "1.21.80",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "rg:melee_attack_throw",
+      "runtime_identifier":"minecraft:snowball",  
+      "is_summonable": false,
+        "is_spawnable": false,
+      "is_experimental": false
+    },
+	 
+    "components": {
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": [ 2, 3 ],
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+		  "particle_on_hit": {
+            "particle_type": "crit",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+        "catch_fire": false,
+        "should_bounce": false,
+         "arrow_effect": {},
+        "hit_sound": "game.player.attack.strong"
+      },
+      "minecraft:physics": {
+        "has_collision": true,
+        "has_gravity": false
+      },
+      "minecraft:collision_box": {
+        "width": 0.1,
+        "height": 0.1
+      },
+      "minecraft:timer": {
+          "time": 4.0,
+          "looping": false,
+          "time_down_event": {
+            "event": "wolf_despawn"
+          }
+        }
+    },
+    "component_groups": {
+	 "despawn" : {
+    "minecraft:instant_despawn": {}
+    },
+	 "rg:zero_damage":{
+			 "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": [ 0, 0 ],
+            "knockback": false,
+            "destroy_on_hit": true
+          },
+           "remove_on_hit": { }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+        "catch_fire": false,
+        "should_bounce": false
+      }			 
+		 },
+		 "rg:one_damage":{
+			 "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 2,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+           "remove_on_hit": { },
+		  "particle_on_hit": {
+            "particle_type": "crit",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+        "catch_fire": false,
+        "should_bounce": false,
+        "arrow_effect": {},
+        "hit_sound": "game.player.attack.strong"
+      }			 
+		 },
+		 "rg:one_damage_crit":{
+			 "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 3,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+           "remove_on_hit": { },
+		  "particle_on_hit": {
+            "particle_type": "crit",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+        "catch_fire": false,
+        "should_bounce": false,
+        "arrow_effect": {},
+        "hit_sound": "game.player.attack.strong"
+      }			 
+		 },
+		 "rg:two_damage":{
+			 "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 3,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+           "remove_on_hit": { },
+		  "particle_on_hit": {
+            "particle_type": "crit",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+		"arrow_effect": {},
+        "catch_fire": false,
+        "should_bounce": false,
+         
+        "hit_sound": "game.player.attack.strong"
+      }			 
+		 },
+		 "rg:two_damage_crit":{
+			 "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 4,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+           "remove_on_hit": { },
+		  "particle_on_hit": {
+            "particle_type": "crit",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+		"arrow_effect": {},
+        "catch_fire": false,
+        "should_bounce": false,
+         
+        "hit_sound": "game.player.attack.strong"
+      }			 
+		 },
+		 "rg:three_damage":{
+			 "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 4,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+           "remove_on_hit": { },
+		  "particle_on_hit": {
+            "particle_type": "crit",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+        "catch_fire": false,
+        "should_bounce": false,
+         "arrow_effect": {},
+        "hit_sound": "game.player.attack.strong"
+      }			 
+		 },
+		 "rg:three_damage_crit":{
+			 "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 6,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+           "remove_on_hit": { },
+		  "particle_on_hit": {
+            "particle_type": "crit",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+        "catch_fire": false,
+        "should_bounce": false,
+         "arrow_effect": {},
+        "hit_sound": "game.player.attack.strong"
+      }			 
+		 },
+		 
+		 "rg:four_damage":{
+			 "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 5,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+           "remove_on_hit": { },
+		  "particle_on_hit": {
+            "particle_type": "crit",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+        "catch_fire": false,
+        "should_bounce": false,
+         "arrow_effect": {},
+        "hit_sound": "game.player.attack.strong"
+      }			 
+		 },
+		 
+		  "rg:four_damage_crit":{
+			 "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 7,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+           "remove_on_hit": { },
+		  "particle_on_hit": {
+            "particle_type": "crit",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+        "catch_fire": false,
+        "should_bounce": false,
+         "arrow_effect": {},
+        "hit_sound": "game.player.attack.strong"
+      }			 
+		 },
+		 "rg:five_damage":{
+			 "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 6,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+           "remove_on_hit": { },
+		  "particle_on_hit": {
+            "particle_type": "crit",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+        "catch_fire": false,
+        "should_bounce": false,
+         "arrow_effect": {},
+        "hit_sound": "game.player.attack.strong"
+      }			 
+		 },
+		 "rg:five_damage_crit":{
+			 "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 9,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+           "remove_on_hit": { },
+		  "particle_on_hit": {
+            "particle_type": "crit",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+        "catch_fire": false,
+        "should_bounce": false,
+         "arrow_effect": {},
+        "hit_sound": "game.player.attack.strong"
+      }			 
+		 },
+		 "rg:six_damage":{
+			 "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 7,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+           "remove_on_hit": { },
+		  "particle_on_hit": {
+            "particle_type": "crit",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+        "catch_fire": false,
+        "should_bounce": false,
+         "arrow_effect": {},
+        "hit_sound": "game.player.attack.strong"
+      }			 
+		 },
+		 "rg:six_damage_crit":{
+			 "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 10,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+           "remove_on_hit": { },
+		  "particle_on_hit": {
+            "particle_type": "crit",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+        "catch_fire": false,
+        "should_bounce": false,
+         "arrow_effect": {},
+        "hit_sound": "game.player.attack.strong"
+      }			 
+		 },
+		 "rg:seven_damage":{
+			 "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 8,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+           "remove_on_hit": { },
+		  "particle_on_hit": {
+            "particle_type": "crit",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+        "catch_fire": false,
+        "should_bounce": false,
+         "arrow_effect": {},
+        "hit_sound": "game.player.attack.strong"
+      }			 
+		 },
+		  "rg:seven_damage_crit":{
+			 "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 12,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+           "remove_on_hit": { },
+		  "particle_on_hit": {
+            "particle_type": "crit",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+        "catch_fire": false,
+        "should_bounce": false,
+         "arrow_effect": {},
+        "hit_sound": "game.player.attack.strong"
+      }			 
+		 },
+		 "rg:eight_damage":{
+			 "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 9,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+           "remove_on_hit": { },
+		  "particle_on_hit": {
+            "particle_type": "crit",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+        "catch_fire": false,
+        "should_bounce": false,
+         "arrow_effect": {},
+        "hit_sound": "game.player.attack.strong"
+      }			 
+		 },
+		  "rg:eight_damage_crit":{
+			 "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 13,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+           "remove_on_hit": { },
+		  "particle_on_hit": {
+            "particle_type": "crit",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 1.5,
+        "gravity": 0.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "shoot_target": true,
+        "offset": [0, -0.2, 0.5],
+        "reflect_on_hurt": false,
+        "catch_fire": false,
+        "should_bounce": false,
+         "arrow_effect": {},
+        "hit_sound": "game.player.attack.strong"
+      }			 
+		 }
+	  },
+     "events": {
+     "wolf_despawn": {
+        "add": {
+          "component_groups": [ "despawn" ]
+        }
+      },
+	  "minecraft:entity_spawned": {
+        "sequence": [
+          {
+            "filters": {
+              "all_of": [
+               { "test": "has_tag", "subject": "other", "operator": "!=", "value": "falling" },
+				{
+                  "any_of":[
+                     { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:wooden_sword" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:stone_axe" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:copper_axe" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:iron_pickaxe" },
+				{ "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:diamond_shovel" },
+				{ "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:iron_hoe" }
+                  ]
+                }
+              ]
+            },
+            "add": { "component_groups": ["rg:four_damage"] }
+          },
+          {
+            "filters": {
+              "all_of": [
+               { "test": "has_tag", "subject": "other", "operator": "=", "value": "falling" },
+				{
+                  "any_of":[
+                     { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:wooden_sword" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:stone_axe" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:copper_axe" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:iron_pickaxe" },
+				{ "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:diamond_shovel" },
+				{ "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:iron_hoe" }
+                  ]
+                }
+              ]
+            },
+            "add": { "component_groups": ["rg:four_damage_crit"] }
+          },
+          {
+            "filters": {
+              "all_of": [
+               { "test": "has_tag", "subject": "other", "operator": "!=", "value": "falling" },
+				{
+                  "any_of":[
+                     { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:wooden_shovel" }
+                  ]
+                }
+              ]
+            },
+            "add": { "component_groups": ["rg:one_damage"] }
+          },
+          {
+            "filters": {
+              "all_of": [
+               { "test": "has_tag", "subject": "other", "operator": "=", "value": "falling" },
+				{
+                  "any_of":[
+                     { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:one_damage_crit" }
+                  ]
+                }
+              ]
+            },
+            "add": { "component_groups": ["rg:one_damage_crit"] }
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "has_tag",
+                  "subject": "other",
+                  "operator": "=",
+                  "value": "on_eat"
+                }
+              ]
+            },
+            "add": { "component_groups": ["rg:zero_damage"] }
+          },
+          {
+            "filters": {
+              "all_of": [
+               { "test": "has_tag", "subject": "other", "operator": "!=", "value": "falling" },
+				{
+                  "any_of":[
+                     { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:stone_shovel" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:copper_shovel" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:wooden_pickaxe" },
+				{ "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:wooden_hoe" }
+                  ]
+                }
+              ]
+            },
+            "add": { "component_groups": ["rg:two_damage"] }
+          },
+          {
+            "filters": {
+              "all_of": [
+               { "test": "has_tag", "subject": "other", "operator": "=", "value": "falling" },
+				{
+                  "any_of":[
+                     { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:stone_shovel" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:copper_shovel" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:wooden_pickaxe" },
+				{ "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:wooden_hoe" }
+                  ]
+                }
+              ]
+            },
+            "add": { "component_groups": ["rg:two_damage_crit"] }
+          },
+          {
+            "filters": {
+              "all_of": [
+               { "test": "has_tag", "subject": "other", "operator": "!=", "value": "falling" },
+				{
+                  "any_of":[
+                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:wooden_axe" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:stone_pickaxe" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:copper_pickaxe" },
+				{ "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:iron_shovel" },
+				{ "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:stone_hoe" }
+                  ]
+                }
+              ]
+            },
+            "add": { "component_groups": ["rg:three_damage"] }
+          },
+          {
+            "filters": {
+              "all_of": [
+               { "test": "has_tag", "subject": "other", "operator": "=", "value": "falling" },
+				{
+                  "any_of":[
+                     { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:wooden_axe" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:stone_pickaxe" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:copper_pickaxe" },
+				{ "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:iron_shovel" },
+				{ "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:stone_hoe" }
+                  ]
+                }
+              ]
+            },
+            "add": { "component_groups": ["rg:three_damage_crit"] }
+          },
+          
+          {
+            "filters": {
+              "all_of": [
+               { "test": "has_tag", "subject": "other", "operator": "!=", "value": "falling" },
+				{
+                  "any_of":[
+                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:stone_sword" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:copper_sword" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:iron_axe" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:diamond_pickaxe" },
+				{ "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:netherite_shovel" },
+				{ "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:diamond_hoe" }
+                  ]
+                }
+              ]
+            },
+            "add": { "component_groups": ["rg:five_damage"] }
+          },
+          {
+            "filters": {
+              "all_of": [
+               { "test": "has_tag", "subject": "other", "operator": "=", "value": "falling" },
+				{
+                  "any_of":[
+                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:stone_sword" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:copper_sword" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:iron_axe" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:diamond_pickaxe" },
+				{ "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:netherite_shovel" },
+				{ "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:diamond_hoe" }
+                  ]
+                }
+              ]
+            },
+            "add": { "component_groups": ["rg:five_damage_crit"] }
+          },
+          
+          {
+            "filters": {
+              "all_of": [
+               { "test": "has_tag", "subject": "other", "operator": "!=", "value": "falling" },
+				{
+                  "any_of":[
+                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:iron_sword" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:diamond_axe" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:netherite_pickaxe" },
+				{ "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:netherite_hoe" }
+                  ]
+                }
+              ]
+            },
+            "add": { "component_groups": ["rg:six_damage"] }
+          },
+          {
+            "filters": {
+              "all_of": [
+               { "test": "has_tag", "subject": "other", "operator": "=", "value": "falling" },
+				{
+                  "any_of":[
+                     { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:iron_sword" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:diamond_axe" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:netherite_pickaxe" },
+				{ "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:netherite_hoe" }
+                  ]
+                }
+              ]
+            },
+            "add": { "component_groups": ["rg:six_damage_crit"] }
+          },
+          
+{
+            "filters": {
+              "all_of": [
+               { "test": "has_tag", "subject": "other", "operator": "!=", "value": "falling" },
+				{
+                  "any_of":[
+                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:diamond_sword" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:netherite_axe" }
+                  ]
+                }
+              ]
+            },
+            "add": { "component_groups": ["rg:seven_damage"] }
+          },
+          {
+            "filters": {
+              "all_of": [
+               { "test": "has_tag", "subject": "other", "operator": "=", "value": "falling" },
+				{
+                  "any_of":[
+                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:diamond_sword" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:netherite_axe" }
+                  ]
+                }
+              ]
+            },
+            "add": { "component_groups": ["rg:seven_damage_crit"] }
+          },
+
+{
+            "filters": {
+              "all_of": [
+               { "test": "has_tag", "subject": "other", "operator": "!=", "value": "falling" },
+				{
+                  "any_of":[
+                     { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:netherite_sword" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:trident" }
+                  ]
+                }
+              ]
+            },
+            "add": { "component_groups": ["rg:eight_damage"] }
+          },
+          {
+            "filters": {
+              "all_of": [
+               { "test": "has_tag", "subject": "other", "operator": "=", "value": "falling" },
+				{
+                  "any_of":[
+                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:netherite_sword" },
+                { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "minecraft:trident" }
+                  ]
+                }
+              ]
+            },
+            "add": { "component_groups": ["rg:eight_damage_crit"] }
+          }
+        ]
+      }
+     }
+  }
+}
