@@ -78,7 +78,7 @@ export function startReactionSystem() {
     world.afterEvents.explosion.subscribe(event => {
         const dim    = event.dimension;
         const blocks = event.impactedBlocks;
-        if (!dim || blocks.length === 0) return;
+        if (!dim || !blocks || blocks.length === 0) return;
 
         // Derive explosion center from impacted block average
         let cx = 0, cy = 0, cz = 0;

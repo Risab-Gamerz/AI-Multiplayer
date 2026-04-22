@@ -13,12 +13,12 @@ import { action } from './database/join_message_database.js';
 import { mobNames, environmentalDeathMessages } from './database/died_message_database.js';
 import { name_prefix, name_suffix, name_Nouns, presetNames } from './database/name_database.js';
 import { startSympathySystem } from "./chat.js";
-import { startFallDetectorBehavior } from "./ai_fall_detector.js";
+import { detectfallingbehavior } from "./ai_fall_detector.js";
 import { startmediatorBehavior } from "./ai_mediator.js";
 import { startFoodSystem } from "./eat_food.js";
 import { startShieldKnockback } from "./shield_block.js";
 import { startGreetingBehavior } from "./greeting.js";
-import { startProgressionSystem } from "./upgrade.js";
+import { startProgressionSystem } from "./level_up.js";
 import { startStrollSwitcherBehavior } from "./ai_stroll_switcher.js";
 import { startAttackPermissionBehavior } from "./ai_attack_permission.js";
 import { AiTrapProof } from "./ai_trap_proof.js";
@@ -121,7 +121,7 @@ function generateRandomPlayerName() {
         const partC = getRandomElement(name_Nouns);
         const partB = getRandomElement(name_suffix);
         const partD = getRandomTwoDigitNumber();
-        
+
         if (partA && partB && partC) {
             return `${partA}${partB}${partC}${partD}`;
         }
@@ -132,7 +132,7 @@ function generateRandomPlayerName() {
 function NormalChatMessage(realPlayers) {
     const name = generateRandomPlayerName();
     let content = getRandomElement(regularChatMessages);
-    
+
     if (content.includes("{real_player}")) {
         let replacementName;
         if (realPlayers.length > 0) {
@@ -143,7 +143,7 @@ function NormalChatMessage(realPlayers) {
         }
         content = content.replace("{real_player}", replacementName);
     }
-    
+
     if (content.includes("{structure_coords}")) {
         const randX = ((Math.random() * 5000) | 0) - 2500;
         const randZ = ((Math.random() * 5000) | 0) - 2500;
@@ -189,7 +189,7 @@ function scheduleNextMessage() {
         const realPlayersCache = REAL_PLAYERS_CACHE;
         const messageTypeRoll = Math.random();
         let messageToSend = null;
-        
+
         for (const item of MESSAGE_GENERATORS) {
             if (messageTypeRoll < item.threshold) {
                 if (item.generator === NormalChatMessage) {
@@ -200,7 +200,7 @@ function scheduleNextMessage() {
                 break;
             }
         }
-        
+
         try {
             if (messageToSend && messageToSend instanceof Promise) {
                 messageToSend.then(msg => {
@@ -232,9 +232,9 @@ function refreshAICache() {
                 const dimension = world.getDimension(dimId);
                 const ais = dimension.getEntities({ type: ai_player_id });
                 ALL_AI_CACHE_EXPORT.push(...ais);
-            } catch (e) {}
+            } catch (e) { }
         }
-    } catch (e) {}
+    } catch (e) { }
 }
 
 function refreshPlayerCache() {
@@ -249,14 +249,14 @@ function startCaches() {
     try {
         // Test if world is ready
         world.getDimension("overworld");
-        
+
         refreshPlayerCache();
         refreshAICache();
-        
+
         // Start cache refresh intervals
         system.runInterval(refreshPlayerCache, PLAYER_CACHE_REFRESH_GAP_TICKS);
         system.runInterval(refreshAICache, AI_CACHE_REFRESH_GAP_TICKS);
-        
+
         cacheRefreshstartd = true;
         console.warn(`[${NAMESPACE.toUpperCase()} AI Script] Cache system startd.`);
     } catch (e) {
@@ -273,13 +273,13 @@ startCaches();
 // ============================================================================
 system.runInterval(() => {
     if (!cacheRefreshstartd) return;
-    
+
     const allAiPlayers = ALL_AI_CACHE_EXPORT;
     if (!allAiPlayers || allAiPlayers.length === 0) return;
-    
+
     for (const aiPlayer of allAiPlayers) {
         if (!aiPlayer.isValid || !aiPlayer.dimension) continue;
-        
+
         let companionWolves;
         try {
             companionWolves = aiPlayer.dimension.getEntities({
@@ -298,7 +298,7 @@ system.runInterval(() => {
             if (ownerId === aiPlayer.id) {
                 const wolfIsInCombat = wolf.getDynamicProperty(`${NAMESPACE}:is_in_combat`) || false;
                 if (wolfIsInCombat) continue;
-                
+
                 const wolfLoc = wolf.location;
                 const aiLoc = aiPlayer.location;
                 const dx = wolfLoc.x - aiLoc.x;
@@ -313,14 +313,14 @@ system.runInterval(() => {
                         y: aiLoc.y,
                         z: aiLoc.z + (Math.random() * 2 - 1)
                     };
-                    
+
                     try {
                         wolf.teleport(safeTargetLoc, {
                             dimension: aiPlayer.dimension,
                             checkForBlocks: true,
                             facingLocation: aiLoc
                         });
-                    } catch (e_teleport) {}
+                    } catch (e_teleport) { }
                 }
             }
         }
@@ -334,7 +334,7 @@ system.runInterval(() => {
 function maintainHopRotation(entityToLock) {
     const lockKey = `${entityToLock.id}_hop`;
     if (hopLockMap.get(lockKey)) return;
-    
+
     const isLocking = entityToLock?.getDynamicProperty(`${NAMESPACE}:is_hop_view_locking`);
     if (!entityToLock || !entityToLock.isValid || isLocking !== true) {
         if (entityToLock && entityToLock.isValid) {
@@ -343,16 +343,16 @@ function maintainHopRotation(entityToLock) {
         hopLockMap.delete(lockKey);
         return;
     }
-    
+
     if (entityToLock.isOnGround && entityToLock.isValid) {
         entityToLock.setDynamicProperty(`${NAMESPACE}:is_hop_view_locking`, false);
         hopLockMap.delete(lockKey);
         return;
     }
-    
+
     const lockedYaw = entityToLock.getDynamicProperty(`${NAMESPACE}:hop_target_yaw`);
     const lockedPitch = entityToLock.getDynamicProperty(`${NAMESPACE}:hop_target_pitch`);
-    
+
     if (typeof lockedYaw === 'number' && typeof lockedPitch === 'number' && entityToLock.isValid) {
         try {
             entityToLock.setRotation({ x: lockedPitch, y: lockedYaw });
@@ -366,7 +366,7 @@ function maintainHopRotation(entityToLock) {
         hopLockMap.delete(lockKey);
         return;
     }
-    
+
     hopLockMap.set(lockKey, true);
     system.runTimeout(() => {
         hopLockMap.delete(lockKey);
@@ -376,13 +376,13 @@ function maintainHopRotation(entityToLock) {
 
 system.runInterval(() => {
     if (!cacheRefreshstartd) return;
-    
+
     const allRealPlayers = REAL_PLAYERS_CACHE;
     if (allRealPlayers.length === 0) return;
-    
+
     const currentTick = system.currentTick;
     let aiPlayersToProcess = new Set();
-    
+
     for (const player of allRealPlayers) {
         if (!player || !player.isValid) continue;
 
@@ -396,14 +396,14 @@ system.runInterval(() => {
             for (const entity of entitiesInProximity) {
                 aiPlayersToProcess.add(entity);
             }
-        } catch (e) {}
+        } catch (e) { }
     }
-    
+
     for (const entity of aiPlayersToProcess) {
         if (!entity || !entity.isValid) continue;
-        
+
         if (entity.getDynamicProperty(`${NAMESPACE}:is_hop_view_locking`)) continue;
-        
+
         const lastCheck = lastHopCheckMap.get(entity.id) || 0;
         if (currentTick - lastCheck < BUNNY_HOP_COOLDOWN_TICKS) continue;
         lastHopCheckMap.set(entity.id, currentTick);
@@ -432,18 +432,18 @@ system.runInterval(() => {
                     if (horizontalSpeed > 0.01) {
                         const initialRotation = entity.getRotation();
                         const targetYaw = Math.atan2(-velocity.x, velocity.z) * (180 / Math.PI);
-                        
+
                         entity.setDynamicProperty(`${NAMESPACE}:hop_target_yaw`, targetYaw);
                         entity.setDynamicProperty(`${NAMESPACE}:hop_target_pitch`, initialRotation.x);
                         entity.setDynamicProperty(`${NAMESPACE}:is_hop_view_locking`, true);
-                        
+
                         system.runTimeout(() => maintainHopRotation(entity), 1);
                     }
                 }
-            } catch (e_vel) {}
+            } catch (e_vel) { }
         }
     }
-    
+
     if (currentTick % 100 === 0) {
         for (const [id, tick] of lastHopCheckMap.entries()) {
             if (currentTick - tick > 200) {
@@ -459,12 +459,12 @@ system.runInterval(() => {
 world.afterEvents.entitySpawn.subscribe(event => {
     const { entity } = event;
     if (entity.typeId !== "rg:bot") return;
-    
+
     if (entity.hasTag('rg:resurrected_ai')) {
         entity.removeTag('rg:resurrected_ai');
         return;
     }
-    
+
     // Set random name
     let finalName = "AI_Player";
 
@@ -484,7 +484,7 @@ world.afterEvents.entitySpawn.subscribe(event => {
 
     try {
         entity.nameTag = finalName;
-    } catch (e) {}
+    } catch (e) { }
 
     system.run(() => {
         try {
@@ -492,7 +492,7 @@ world.afterEvents.entitySpawn.subscribe(event => {
             entity.setDynamicProperty(`${NAMESPACE}:isInDanger`, false);
             entity.setDynamicProperty(`${NAMESPACE}:lastHostileTick`, 0);
             entity.setDynamicProperty(`${NAMESPACE}:lastPostCombatChatTick`, 0);
-            
+
             let numDogs = 0;
             const tiers = Object.keys(dogs_rank).reverse();
             for (const tier of tiers) {
@@ -502,7 +502,7 @@ world.afterEvents.entitySpawn.subscribe(event => {
                     break;
                 }
             }
-            
+
             if (numDogs > 0) {
                 system.runTimeout(() => {
                     if (!entity.isValid) return;
@@ -515,7 +515,7 @@ world.afterEvents.entitySpawn.subscribe(event => {
                                 y: spawnLoc.y,
                                 z: spawnLoc.z + (Math.random() * 1.6 - 0.8)
                             };
-                            
+
                             if (entity.dimension.isChunkLoaded(offsetSpawnLoc)) {
                                 const wolf = entity.dimension.spawnEntity(pet_dog_id, offsetSpawnLoc);
 
@@ -528,7 +528,7 @@ world.afterEvents.entitySpawn.subscribe(event => {
                                     }
                                 }
                             }
-                        } catch (e_dog) {}
+                        } catch (e_dog) { }
                     }
                 }, 5);
             }
@@ -621,7 +621,7 @@ world.afterEvents.entityDie.subscribe(event => {
 world.afterEvents.entityHurt.subscribe(event => {
     const { hurtEntity, damageSource } = event;
     if (hurtEntity.typeId !== "rg:bot") return;
-    
+
     if (damageSource.damagingEntity && damageSource.damagingEntity.isValid) {
         const aiPlayer = hurtEntity;
         const attacker = damageSource.damagingEntity;
@@ -651,7 +651,7 @@ world.afterEvents.entityHurt.subscribe(event => {
             if (attacker.isValid) attacker.removeTag(DEFEND_aim_TAG);
             if (!aiPlayer || !aiPlayer.isValid) return;
             if (attacker && attacker.isValid) attacker.removeTag(DEFEND_aim_TAG);
-            
+
             let currentWolvesAfterDefend = [];
             try {
                 if (aiPlayer.dimension) {
@@ -662,7 +662,7 @@ world.afterEvents.entityHurt.subscribe(event => {
                     });
                 }
             } catch (e) { return; }
-            
+
             for (const wolf of currentWolvesAfterDefend) {
                 if (wolf.isValid && wolf.getDynamicProperty(`${NAMESPACE}:ai_owner_id`) === aiPlayer.id) {
                     wolf.triggerEvent("app:event_wolf_exit_defend_mode");
@@ -684,7 +684,7 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
     if (!shooter || !shooter.isValid) return;
     if (shooter.typeId !== ai_player_id) return;
     if (!hitInfo) return;
-    
+
     const entityHit = hitInfo.entity;
     if (!entityHit || !entityHit.isValid) return;
     if (projectile && projectile.isValid && projectile.typeId !== "rg:melee_attack_throw") return;
@@ -725,7 +725,7 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
 world.afterEvents.entityDie.subscribe(event => {
     const { deadEntity } = event;
     if (deadEntity.typeId !== "rg:bot") return;
-    
+
     const deadAiPlayerId = deadEntity.id;
     let potentialOrphanedWolves = [];
     try {
@@ -759,7 +759,7 @@ function startAllModules() {
         startStrollSwitcherBehavior();
         AiTrapProof();
         startProgressionSystem();
-        startFallDetectorBehavior();
+        detectfallingbehavior();
         startmediatorBehavior();
         startSympathySystem();
         startBuilderSystem();
@@ -781,7 +781,7 @@ function startAllModules() {
         startShelterBuilder();
         startItemPickup();
         startReactionSystem();
-        
+
         console.warn(`[${NAMESPACE.toUpperCase()} AI Script] All modules startd.`);
     } catch (e) {
         console.warn(`[${NAMESPACE.toUpperCase()} AI Script] Module init failed: ${e}`);
